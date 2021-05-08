@@ -14,4 +14,8 @@ public interface IParkingService
     User addData(UserDTO userDTO,int vehicle_ID);
 
     Vehicle getVehicleId(int vehicle_ID);
+
+    void unParkVehicle(int user_id);
+
+    User getUserById(int user_ID);
 }

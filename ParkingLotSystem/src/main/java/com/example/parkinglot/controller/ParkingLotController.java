@@ -33,12 +33,22 @@ public class ParkingLotController
         ResponseDTO responseDTO= new ResponseDTO(" Get a Contact By Id", vehicles);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
+    @GetMapping("/GetUserById/{user_ID}")
+    public ResponseEntity<ResponseDTO> getUserById(@PathVariable("user_ID") int user_ID) {
+        User user =  iParkingService.getUserById(user_ID);
+        ResponseDTO responseDTO= new ResponseDTO(" Get a Contact By Id", user);
+        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
+    }
     @PostMapping("/addUser")
     public ResponseEntity<ResponseDTO> addData(@RequestBody UserDTO userDTO ,@RequestParam("vehicle_ID") int vehicle_ID){
         User user =  iParkingService.addData(userDTO,vehicle_ID);
         ResponseDTO responseDTO = new ResponseDTO("Add User Details ",user);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.CREATED);
     }
-
-
+    @DeleteMapping("/UnparkVehicle/{user_Id}")
+    public ResponseEntity<ResponseDTO> deleteContactData(@PathVariable("user_Id") int user_Id) {
+        iParkingService.unParkVehicle(user_Id);
+        ResponseDTO respDTO = new ResponseDTO(" UnPark Vehicle By User Id :- ", user_Id);
+        return new ResponseEntity<>(respDTO, HttpStatus.OK);
+    }
 }

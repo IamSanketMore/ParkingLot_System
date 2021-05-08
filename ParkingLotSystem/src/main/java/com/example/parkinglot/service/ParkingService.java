@@ -45,4 +45,15 @@ public class ParkingService implements  IParkingService
     public Vehicle getVehicleId(int vehicle_ID) {
         return vehicleRepository.findById(vehicle_ID).orElseThrow();
     }
+
+    @Override
+    public void unParkVehicle(int user_id) {
+        User user =this.getUserById(user_id);
+        userRepository.delete(user);
+    }
+
+    @Override
+    public User getUserById(int user_ID) {
+        return userRepository.findById(user_ID).orElseThrow();
+    }
 }
