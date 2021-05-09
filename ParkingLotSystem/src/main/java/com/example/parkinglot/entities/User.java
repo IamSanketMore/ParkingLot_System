@@ -36,6 +36,13 @@ public class User
     @OneToOne(cascade = CascadeType.ALL)
     private Vehicle vehicle;
 
+    @OneToOne
+    private Slots slot;
+
+    @ManyToOne
+    private ParkingLot parkingLot;
+
+
     public User(UserDTO userDTO) {
         super();
         this.userName = userDTO.userName;

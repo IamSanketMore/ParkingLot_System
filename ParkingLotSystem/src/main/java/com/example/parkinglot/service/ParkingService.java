@@ -2,9 +2,12 @@ package com.example.parkinglot.service;
 
 import com.example.parkinglot.dto.UserDTO;
 import com.example.parkinglot.dto.VehicleDTO;
+import com.example.parkinglot.entities.ParkingLot;
+import com.example.parkinglot.entities.Slots;
 import com.example.parkinglot.entities.User;
 import com.example.parkinglot.entities.Vehicle;
 import com.example.parkinglot.repository.ParkingLotRepository;
+import com.example.parkinglot.repository.SlotsRepository;
 import com.example.parkinglot.repository.UserRepository;
 import com.example.parkinglot.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +24,12 @@ public class ParkingService implements  IParkingService
     //ParkingLotRepository parkingLotRepository;
     @Autowired
     VehicleRepository vehicleRepository;
-
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    ParkingLotRepository parkingLotRepository;
+    @Autowired
+    SlotsRepository slotsRepository;
 
     @Override
     public Vehicle addVehicle(VehicleDTO vehicleDTO)
@@ -38,6 +44,10 @@ public class ParkingService implements  IParkingService
         User user = new User(userDTO);
         Vehicle vehicle = vehicleRepository.findById(vehicle_ID).orElseThrow();
         user.setVehicle(vehicle);
+        ParkingLot parkingLot = parkingLotRepository.findById(userDTO.getParkingLot_Id()).orElseThrow();
+        user.setParkingLot(parkingLot);
+        Slots slots = slotsRepository.findById(userDTO.getSlots_ID()).orElseThrow();
+        user.setSlot(slots);
         return  userRepository.save(user);
     }
 
@@ -55,5 +65,10 @@ public class ParkingService implements  IParkingService
     @Override
     public User getUserById(int user_ID) {
         return userRepository.findById(user_ID).orElseThrow();
+    }
+
+    @Override
+    public List<User> getAllVehicles() {
+        return userRepository.findAll();
     }
 }

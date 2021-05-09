@@ -51,4 +51,9 @@ public class ParkingLotController
         ResponseDTO respDTO = new ResponseDTO(" UnPark Vehicle By User Id :- ", user_Id);
         return new ResponseEntity<>(respDTO, HttpStatus.OK);
     }
+    @GetMapping("/User/all")
+    public ResponseEntity<ResponseDTO>  getAllUserDta(){
+        ResponseDTO responseDTO=new ResponseDTO(" All User Data Is :- ", iParkingService.getAllVehicles());
+        return new ResponseEntity<ResponseDTO> (responseDTO,HttpStatus.OK);
+    }
 }

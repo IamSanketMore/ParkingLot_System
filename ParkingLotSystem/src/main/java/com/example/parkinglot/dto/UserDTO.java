@@ -17,4 +17,7 @@ public class UserDTO
     public String city;
     public String state;
     public int vehicle_ID;
+
+    public int slots_ID;
+    public int parkingLot_Id;
 }

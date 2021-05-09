@@ -18,4 +18,6 @@ public interface IParkingService
     void unParkVehicle(int user_id);
 
     User getUserById(int user_ID);
+
+    List<User> getAllVehicles();
 }
