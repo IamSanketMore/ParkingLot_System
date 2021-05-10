@@ -56,4 +56,11 @@ public class ParkingLotController
         ResponseDTO responseDTO=new ResponseDTO(" All User Data Is :- ", iParkingService.getAllVehicles());
         return new ResponseEntity<ResponseDTO> (responseDTO,HttpStatus.OK);
     }
+
+    @GetMapping("/findByColor/{color}")
+    public ResponseEntity<ResponseDTO> findByColor(@PathVariable("color") String color) {
+       // User user =  iParkingService.getUserById(user_ID);
+        ResponseDTO responseDTO= new ResponseDTO(" Find by color", iParkingService.findByColor(color));
+        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
+    }
 }

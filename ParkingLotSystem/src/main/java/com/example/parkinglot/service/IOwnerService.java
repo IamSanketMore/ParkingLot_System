@@ -18,4 +18,7 @@ public interface IOwnerService
     List<Vehicle> getAllVehicles();
 
     ResponseDTO checkFull();
+//    ParkingLot existsParkingLotByParkingLot_ID(int id);
+
+    List<ParkingLot> findAll();
 }

@@ -16,7 +16,7 @@ public class Slots
     private int slots_ID;
     private String slotName;
 
-    @ManyToOne
+    @ManyToOne()
     @JsonIgnore
     @JoinColumn
     private ParkingLot parkingLot;

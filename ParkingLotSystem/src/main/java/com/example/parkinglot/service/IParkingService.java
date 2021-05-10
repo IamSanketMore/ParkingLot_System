@@ -20,4 +20,6 @@ public interface IParkingService
     User getUserById(int user_ID);
 
     List<User> getAllVehicles();
+    List<Vehicle> findByColor(String color);
+
 }

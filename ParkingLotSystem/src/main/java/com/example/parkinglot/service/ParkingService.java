@@ -71,4 +71,12 @@ public class ParkingService implements  IParkingService
     public List<User> getAllVehicles() {
         return userRepository.findAll();
     }
+
+    @Override
+    public List<Vehicle> findByColor(String color) {
+        List<Vehicle> vehicles = vehicleRepository.findByColor(color);
+        return  vehicles;
+    }
+
+
 }

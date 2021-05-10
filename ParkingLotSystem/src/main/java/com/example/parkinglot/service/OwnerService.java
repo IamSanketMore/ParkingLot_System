@@ -39,7 +39,7 @@ public class OwnerService implements IOwnerService
 
     public Slots addSlot(SlotsDTO slotsDTO){
         Slots slot = new Slots(slotsDTO);
-        ParkingLot parkingLot=parkingLotRepository.findById(slotsDTO.getParkingLotName()).orElseThrow();
+        ParkingLot parkingLot=parkingLotRepository.findById( slotsDTO.getParkingLotName()).orElseThrow();
         slot.setParkingLot(parkingLot);
         return slotsRepository.save(slot);
 
@@ -63,6 +63,17 @@ public class OwnerService implements IOwnerService
             return new ResponseDTO(" ParkingLot Have Empty Slots ! ");
         }
 
+    }
+
+//    @Override
+//    public ParkingLot existsParkingLotByParkingLot_ID(int id) {
+//        ParkingLot parkingLot = parkingLotRepository.existsParkingLotByParkingLot_ID(id);
+//        return parkingLot;
+//    }
+
+    @Override
+    public List<ParkingLot> findAll() {
+        return parkingLotRepository.findAll();
     }
 
 }

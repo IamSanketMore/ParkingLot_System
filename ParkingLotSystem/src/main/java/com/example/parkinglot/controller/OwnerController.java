@@ -45,5 +45,16 @@ public class OwnerController
         return new ResponseEntity<>(responseDTO,HttpStatus.OK);
     }
 
+//    @GetMapping("/existsParkingLotByParkingLot_ID")
+//    public  ResponseEntity<ResponseDTO> existsParkingLotByParkingLot_ID(@PathVariable("id") int id){
+//        ResponseDTO responseDTO = new ResponseDTO("Parking Exists: ", iOwnerService.existsParkingLotByParkingLot_ID(id));
+//        return new ResponseEntity<>(responseDTO,HttpStatus.OK);
+//    }
+
+    @GetMapping("/findAllParkinglot")
+    public  ResponseEntity<ResponseDTO> findAll(){
+        ResponseDTO responseDTO = new ResponseDTO("All Parking Lots IS: ", iOwnerService.findAll());
+        return new ResponseEntity<>(responseDTO,HttpStatus.OK);
+    }
 
 }
