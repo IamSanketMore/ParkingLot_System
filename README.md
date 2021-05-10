@@ -5,3 +5,5 @@
     UC3 : As a Parking Lot owner I want to know when the lot is full So that I can put out the full sign.
     UC4 : As a airport security personal I want to know when the lot is full So that I can redirect my security staff.
     UC5 : As a parking lot Owner I want to know when the parking lot has space again So that I can take in the full sign.
+    UC6 : As a parking lot Owner I want a parking attendant to park cars so that I can make decisions on where to park the cars
+    UC7  : As a driver I want to find my car so that I can go home   .
