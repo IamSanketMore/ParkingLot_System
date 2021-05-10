@@ -27,7 +27,7 @@ public class ParkingLotController
         ResponseDTO responseDTO = new ResponseDTO("Add vehicles Details ",vehicles);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.CREATED);
     }
-    @GetMapping("/GetVehicleById/{vehicle_ID}")
+    @GetMapping("/findVehicleById/{vehicle_ID}")
     public ResponseEntity<ResponseDTO> getVehicleId(@PathVariable("vehicle_ID") int vehicle_ID) {
         Vehicle vehicles =  iParkingService.getVehicleId(vehicle_ID);
         ResponseDTO responseDTO= new ResponseDTO(" Get a Contact By Id", vehicles);

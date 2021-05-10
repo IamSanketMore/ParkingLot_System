@@ -13,6 +13,6 @@ public class SlotsDTO
 {
     public int slots_ID;
     public String slotsName;
-    public int parkingLotName;
+    //public int parkingLotName;
    //public String parkingLotName;
 }

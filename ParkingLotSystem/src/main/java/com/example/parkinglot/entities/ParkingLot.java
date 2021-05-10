@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Data
@@ -18,8 +20,11 @@ public class ParkingLot
     private int parkingLot_ID;
     private String parkingLotName;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "parkingLot")
+    //@JsonIgnore
+  //  @OneToMany(mappedBy = "parkingLot")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ParkingLot_fk_id")
+    //@JoinColumn
     public List<Slots> slots;
 
     @JsonIgnore

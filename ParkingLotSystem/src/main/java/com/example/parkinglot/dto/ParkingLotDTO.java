@@ -13,4 +13,6 @@ public class ParkingLotDTO
 {
     public int parkingLot_ID;
     public String parkingLotName;
+
+    //public int slots_ID;
 }
